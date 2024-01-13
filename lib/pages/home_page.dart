@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:noti_dust/pages/map_page.dart';
+import 'package:noti_dust/pages/setting_page.dart';
 import 'package:noti_dust/pages/statistics_page.dart';
 
 /// Determine the current position of the device.
@@ -56,15 +57,9 @@ class _HomePageState extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Statistics Page',
-      style: optionStyle,
-    ),
+    StatisticsPage(),
     MapPage(),
-    Text(
-      'Setting Page',
-      style: optionStyle,
-    ),
+    SettingPage(),
   ];
 
   void _onItemTapped(int index) {
