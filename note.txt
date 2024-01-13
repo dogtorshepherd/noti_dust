@@ -1,0 +1,1 @@
+http://api.openweathermap.org/data/2.5/air_pollution?lat=13.9264&lon=100.5846528&appid=6bfc33b0864b13ce6575162866233c14
