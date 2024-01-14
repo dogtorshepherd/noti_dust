@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:noti_dust/pages/map_page.dart';
 import 'package:noti_dust/pages/setting_page.dart';
-import 'package:noti_dust/pages/statistics_page.dart';
+import 'package:noti_dust/screens/statistics_page.dart';
 
 /// Determine the current position of the device.
 ///
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     StatisticsPage(),
     MapPage(),
     SettingPage(),
@@ -78,15 +78,15 @@ class _HomePageState extends State<HomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.bar_chart),
-            label: 'Statistics',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.public),
             label: 'Map',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Setting',
+            icon: Icon(Icons.info),
+            label: 'About',
           ),
         ],
         currentIndex: _selectedIndex,
