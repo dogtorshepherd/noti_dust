@@ -1,0 +1,7 @@
+Home Page
+    - inapp + push notification
+    - statistic
+Map Page
+     - loading circle
+About Page
+    - ลบพื้นหลังรูป

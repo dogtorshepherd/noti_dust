@@ -69,22 +69,22 @@ class SettingPage extends StatelessWidget {
       // add more images here...
     ];
 
-    final user = FirebaseAuth.instance.currentUser!;
+    // final user = FirebaseAuth.instance.currentUser!;
 
-    void signUserOut() {
-      FirebaseAuth.instance.signOut();
-    }
+    // void signUserOut() {
+    //   FirebaseAuth.instance.signOut();
+    // }
 
     return Scaffold(
-        appBar: AppBar(
-          actions: [
-            Text("${user.displayName!} (${user.email!})"),
-            IconButton(
-              onPressed: signUserOut,
-              icon: Icon(Icons.logout),
-            )
-          ],
-        ),
+        // appBar: AppBar(
+        //   actions: [
+        //     Text("${user.displayName!} (${user.email!})"),
+        //     IconButton(
+        //       onPressed: signUserOut,
+        //       icon: Icon(Icons.logout),
+        //     )
+        //   ],
+        // ),
         body:
 
             // Create a ListView widget with the list of ImageData objects
