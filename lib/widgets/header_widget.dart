@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
 
-import '../controller/global_controller.dart';
+import '../icons/controller/global_controller.dart';
 
 class HeaderWidget extends StatefulWidget {
   final GlobalController globalController;

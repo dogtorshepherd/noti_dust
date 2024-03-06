@@ -1,6 +1,6 @@
+import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:noti_dust/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class BGServiceSwitch extends StatefulWidget {
@@ -26,34 +26,35 @@ class _BGServiceSwitchState extends State<BGServiceSwitch> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-      child: GestureDetector(
-        // onTap: () async {
-        //   var isRunning = await FlutterBackgroundService().isServiceRunning();
-        //   if (isRunning) {
-        //     FlutterBackgroundService().sendData({'action': 'stopService'});
-        //   } else {
-        //     FlutterBackgroundService.initialize(onBGServiceEnabled);
-        //   }
-        //   setState(() {
-        //     this.isRunning = isRunning;
-        //   });
-        // },
-        child: Container(
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(left: 10, right: 10, bottom: 15),
-            width: double.infinity,
-            decoration: BoxDecoration(
-                // ignore: deprecated_member_use
-                color: const Color.fromRGBO(0, 77, 64, 1),
-                borderRadius: BorderRadius.circular(15)),
-            child: Center(
-                child: Text(
-              (isRunning) ? textEnable : textDisable,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
-            ))),
-      ),
-    );
+    return const SizedBox.shrink();
+    // return Container(
+    //   padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+    //   child: GestureDetector(
+    //     onTap: () async {
+    //       var isRunning = await FlutterBackgroundService().isServiceRunning();
+    //       if (isRunning) {
+    //         FlutterBackgroundService().sendData({'action': 'stopService'});
+    //       } else {
+    //         FlutterBackgroundService.initialize(onBGServiceEnabled);
+    //       }
+    //       setState(() {
+    //         this.isRunning = isRunning;
+    //       });
+    //     },
+    //     child: Container(
+    //         padding: const EdgeInsets.all(20),
+    //         margin: const EdgeInsets.only(left: 10, right: 10, bottom: 15),
+    //         width: double.infinity,
+    //         decoration: BoxDecoration(
+    //             // ignore: deprecated_member_use
+    //             color: const Color.fromRGBO(0, 77, 64, 1),
+    //             borderRadius: BorderRadius.circular(15)),
+    //         child: Center(
+    //             child: Text(
+    //           (isRunning) ? textEnable : textDisable,
+    //           style: const TextStyle(color: Colors.white, fontSize: 16),
+    //         ))),
+    //   ),
+    // );
   }
 }

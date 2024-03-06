@@ -120,7 +120,8 @@ class _MapPageState extends State<MapPage> {
       double lat = position.latitude;
       double lon = position.longitude;
       _controller.loadRequest(Uri.parse(
-          "https://www.iqair.com/th/air-quality-map?lat=$lat&lng=$lon&zoomLevel=20"));
+          // "https://www.iqair.com/th/air-quality-map?lat=$lat&lng=$lon&zoomLevel=20"));
+          "https://aqicn.org/map/thailand/"));
     } else {
       exit(0);
     }

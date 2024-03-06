@@ -1,4 +1,4 @@
-import 'package:noti_dust/controller/global_controller.dart';
+import 'package:noti_dust/icons/controller/global_controller.dart';
 import 'package:noti_dust/screens/search_location.dart';
 import 'package:noti_dust/widgets/components_widget.dart';
 import 'package:noti_dust/widgets/header_widget.dart';
@@ -30,8 +30,6 @@ class _StatisticsPageState extends State<StatisticsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
-
       //AppBar
       // appBar: AppBar(
       //   iconTheme: const IconThemeData(color: Color.fromRGBO(0, 77, 64, 1)),
@@ -44,7 +42,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
       //       icon: const Icon(
       //         Icons.search,
       //         color: Color.fromRGBO(0, 77, 64, 1),
-              
+
       //       ),
       //     )
       //   ],
