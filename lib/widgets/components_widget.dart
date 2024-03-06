@@ -1,7 +1,7 @@
+import 'package:noti_dust/model/air_quality/air_quality.dart';
 import 'package:noti_dust/model/air_quality/components.dart';
 import 'package:flutter/material.dart';
 
-import '../model/air_quality/air_quality.dart';
 
 class ComponentsWidget extends StatelessWidget {
   final AirQuality airQuality;
@@ -27,43 +27,58 @@ class ComponentsWidget extends StatelessWidget {
     var labelArray = ['NO', 'CO', 'NO2', 'O3', 'SO2', 'PM2.5', 'PM10', 'NH3'];
     var valueArray = [no, co, no2, o3, so2, pm25, pm10, nh3];
 
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      child: GridView.count(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          crossAxisCount: 4,
-          // padding: EdgeInsets.all(10),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 20,
-          children: List.generate(8, (index) {
-            return Container(
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 218, 223, 223),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(width: 2, color: progressColor(aqi))),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    labelArray[index],
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    '${valueArray[index]}',
-                    style: TextStyle(
-                        color: progressColor(aqi),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
+    return Container(
+      color: Colors.indigo[900],
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20),
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(height: 56),
+              Text(
+                labelArray[5],
+                style: const TextStyle(
+                    color: Color.fromARGB(162, 0, 0, 0),
+                    fontSize: 25,
+                    fontWeight: FontWeight.normal),
               ),
-            );
-          })),
+              const SizedBox(height: 10),
+              Container(
+                child: Text(
+                  '${valueArray[5]}',
+                  style: TextStyle(
+                      color: progressColor(aqi),
+                      fontSize: 38,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                child: Text(
+                  'µg/m\u00B3',
+                  style: TextStyle(
+                      color: Color.fromARGB(162, 0, 0, 0),
+                      fontSize: 25,
+                      fontWeight: FontWeight.normal),
+                ),
+              ),
+              const SizedBox(height: 90),
+              Container(
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  'source : OpenWeather',
+                  style: const TextStyle(
+                    color: Color.fromARGB(97, 0, 0, 0),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
+        ),
+      ),
     );
   }
 

@@ -1,5 +1,5 @@
-import 'package:noti_dust/model/air_quality/air_quality.dart';
 import 'package:flutter/material.dart';
+import 'package:noti_dust/model/air_quality/air_quality.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class AQIDataWidget extends StatelessWidget {
@@ -13,26 +13,34 @@ class AQIDataWidget extends StatelessWidget {
     double aqiPercent = (aqi) / 5;
 
     return Container(
-      alignment: Alignment.center,
-      child: CircularPercentIndicator(
-        radius: 120,
-        lineWidth: 20,
-        animation: true,
-        animationDuration: 2000,
-        startAngle: 185,
-        percent: aqiPercent,
-        progressColor: progressColor(aqi),
-        backgroundColor: Colors.grey.shade400,
-        circularStrokeCap: CircularStrokeCap.round,
-        center: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 120, width: 120, child: aqiImage(aqi)),
-            Text(
-              aqiText(aqi),
-              style: TextStyle(color: Colors.grey.shade800, fontSize: 18),
+      color: Colors.indigo[900],
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20),
+        child: Container(
+          padding: const EdgeInsets.only(top: 30, bottom: 5),
+          color: Colors.white,
+          alignment: Alignment.center,
+          child: CircularPercentIndicator(
+            radius: 120,
+            lineWidth: 20,
+            animation: true,
+            animationDuration: 2000,
+            startAngle: 185,
+            percent: aqiPercent,
+            progressColor: progressColor(aqi),
+            backgroundColor: Colors.grey.shade200,
+            circularStrokeCap: CircularStrokeCap.round,
+            center: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 120, width: 120, child: aqiImage(aqi)),
+                Text(
+                  aqiText(aqi),
+                  style: TextStyle(color: Colors.grey.shade800, fontSize: 22),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -55,7 +63,8 @@ class AQIDataWidget extends StatelessWidget {
     }
   }
 
-  Image aqiImage(int aqi) => Image.asset('assets/images/$aqi.png');
+  Image aqiImage(int aqi) =>
+      Image.asset('assets/images/$aqi.png'); //แสดงรูปฝุ่นในแบบต่างๆ 5 สถานะ
 
   String aqiText(int aqi) {
     switch (aqi) {

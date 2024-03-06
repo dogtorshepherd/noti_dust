@@ -52,12 +52,12 @@ class _StatisticsPageState extends State<StatisticsPage> {
           child: Obx(() => globalController.checkLoading().isTrue
               ? const Center(child: CircularProgressIndicator())
               : ListView(children: [
-                  const SizedBox(height: 10),
+                  // const SizedBox(height: 10),
                   HeaderWidget(globalController: globalController),
                   AQIDataWidget(
                     airQuality: globalController.getAirQualityData(),
                   ),
-                  const SizedBox(height: 50),
+                  // const SizedBox(height: 50),
                   ComponentsWidget(
                       airQuality: globalController.getAirQualityData()),
                   // const SizedBox(height: 10),

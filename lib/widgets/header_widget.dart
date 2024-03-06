@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
+import 'package:noti_dust/icons/controller/global_controller.dart';
 
-import '../icons/controller/global_controller.dart';
 
 class HeaderWidget extends StatefulWidget {
   final GlobalController globalController;
@@ -41,42 +41,51 @@ class _HeaderWidgetState extends State<HeaderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(left: 20, right: 20),
-          alignment: Alignment.topLeft,
-          child: Text(
-            city,
-            style: const TextStyle(
-              fontSize: 35,
-              color: Colors.black,
-            ),
+    return Container(
+      color: Colors.indigo[900],
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20),
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  city,
+                  style: const TextStyle(
+                    fontSize: 35,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  '$state, $country',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 77, 77, 77),
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  date,
+                  style: const TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 77, 77, 77),
+                      height: 1.5),
+                ),
+              )
+            ],
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(left: 20, right: 20),
-          alignment: Alignment.topLeft,
-          child: Text(
-            '$state, $country',
-            style: const TextStyle(
-              fontSize: 16,
-              color: Color.fromARGB(255, 77, 77, 77),
-            ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-          alignment: Alignment.topLeft,
-          child: Text(
-            date,
-            style: const TextStyle(
-                fontSize: 16,
-                color: Color.fromARGB(255, 77, 77, 77),
-                height: 1.5),
-          ),
-        )
-      ],
+      ),
     );
   }
 }

@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_background_service_android/flutter_background_service_android.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:noti_dust/model/air_quality/components.dart';
 import 'package:noti_dust/pages/auth_page.dart';
 import 'package:noti_dust/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -80,8 +81,8 @@ Future<void> initializeService() async {
       isForegroundMode: true,
 
       notificationChannelId: 'my_foreground',
-      initialNotificationTitle: 'AWESOME SERVICE',
-      initialNotificationContent: 'Initializing',
+      initialNotificationTitle: 'Initializing',
+      // initialNotificationContent: 'Initializing',
       foregroundServiceNotificationId: 888,
     ),
     iosConfiguration: IosConfiguration(
@@ -172,24 +173,19 @@ void onStart(ServiceInstance service) async {
             await globalController.getAirQualityData();
         var airQualityList = airQuality.list ?? [];
         if (airQualityList.isNotEmpty) {
-          int aqi = airQuality.list![0].main!.aqi!;
-          if (aqi <= 3) {
-            service.setForegroundNotificationInfo(
-              title: 'Air Quality: ${aqiText(aqi)}',
-              content: '',
-            );
-          } else {
-            service.setForegroundNotificationInfo(
-              title: 'Air Quality: ${aqiText(aqi)}',
-              content: '',
-            );
-          }
+          // int aqi = airQuality.list![0].main!.aqi!;
+          Components components = airQuality.list![0].components!;
+          double pm25 = components.pm25!;
+          service.setForegroundNotificationInfo(
+            title: 'ปริมาณ PM2.5 = $pm25 μg/m\u00B3',
+            content: '',
+          );
         }
       }
     }
 
     /// you can see this log in logcat
-    print('FLUTTER BACKGROUND SERVICE: ${DateTime.now()}');
+    // print('FLUTTER BACKGROUND SERVICE: ${DateTime.now()}');
 
     // test using external plugin
     final deviceInfo = DeviceInfoPlugin();
