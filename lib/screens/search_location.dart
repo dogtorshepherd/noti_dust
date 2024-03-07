@@ -1,5 +1,5 @@
 import 'package:noti_dust/api/location_api.dart';
-import 'package:noti_dust/icons/controller/global_controller.dart';
+import 'package:noti_dust/controller/global_controller.dart';
 import 'package:noti_dust/screens/new_location.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';

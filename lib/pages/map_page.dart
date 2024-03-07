@@ -185,7 +185,7 @@ class _MapPageState extends State<MapPage> {
               label: markerTitle,
               markerId: MarkerId(markerTitle),
               position: LatLng(lat, lng),
-              backgroundColor: aqiColor(aqi),
+              backgroundColor: pm25Color(pm25),
               textStyle: aqi == 2
                   ? const TextStyle(
                       fontSize: 27.0,
@@ -211,7 +211,7 @@ class _MapPageState extends State<MapPage> {
             label: markerTitle,
             markerId: MarkerId(markerTitle),
             position: LatLng(userLocation.latitude, userLocation.longitude),
-            backgroundColor: aqiColor(aqi),
+            backgroundColor: pm25Color(pm25),
             textStyle: aqi == 2
                 ? const TextStyle(
                     fontSize: 27.0,
@@ -240,6 +240,20 @@ class _MapPageState extends State<MapPage> {
         return Colors.purple;
       default:
         return Colors.green;
+    }
+  }
+
+  MaterialColor pm25Color(double pm25) {
+    if (pm25 < 15.1) {
+      return Colors.blue;
+    } else if (pm25 < 25.1) {
+      return Colors.green;
+    } else if (pm25 < 37.6) {
+      return Colors.yellow;
+    } else if (pm25 < 75.1) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
     }
   }
 }

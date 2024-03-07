@@ -1,5 +1,5 @@
 
-import 'package:noti_dust/icons/controller/global_controller.dart';
+import 'package:noti_dust/controller/global_controller.dart';
 
 import 'package:noti_dust/widgets/aqi_data_widget.dart';
 import 'package:noti_dust/widgets/components_widget.dart';

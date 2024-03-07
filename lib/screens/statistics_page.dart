@@ -1,10 +1,15 @@
-import 'package:noti_dust/icons/controller/global_controller.dart';
+import 'dart:async';
+
+import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:noti_dust/controller/global_controller.dart';
+import 'package:noti_dust/main.dart';
 import 'package:noti_dust/screens/search_location.dart';
 import 'package:noti_dust/widgets/components_widget.dart';
 import 'package:noti_dust/widgets/header_widget.dart';
 import 'package:noti_dust/widgets/notification_widget.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../widgets/aqi_data_widget.dart';
 
@@ -25,6 +30,19 @@ class _StatisticsPageState extends State<StatisticsPage> {
       context,
       MaterialPageRoute(builder: (context) => const SearchPage()),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsFlutterBinding.ensureInitialized();
+    Permission.notification.isDenied
+        .then((value) => Permission.notification.request());
+    FlutterBackgroundService.initialize(onBGServiceEnabled);
+
+    Timer.periodic(const Duration(minutes: 1), (timer) async {
+      globalController.getLocation();
+    });
   }
 
   @override
